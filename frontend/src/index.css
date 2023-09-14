@@ -9,7 +9,7 @@ html, body {
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
 }
-.App input[type=text] {
+.App input[type=text], .App input[type=password] {
     background-color: #21222A;
     color: #61DAFB;
     border: none;
@@ -48,6 +48,10 @@ html, body {
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
     box-shadow: 0 1px 2px #282D35;
+}
+
+.Nav-logo {
+    cursor: pointer;
 }
 
 
@@ -118,3 +122,20 @@ html, body {
     margin-left: 30px;
 }
 
+.success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.success-message {
+    text-align: center;
+}
+
+.success-header {
+    color: #61DAFB;
+    font-size: 90px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 90px;
+}

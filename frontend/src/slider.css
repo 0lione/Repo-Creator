@@ -11,6 +11,25 @@
     background: url(lock.png) no-repeat center center;
 }
 
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 30px;  
+  border-image: url(lock.png) 1;
+  cursor: pointer;
+  border: none;
+}
+
+.slider::-moz-range-thumb {
+  padding: 30px;  
+  border-image: url(lock.png) 1;
+  cursor: pointer;
+  border: none;
+}
+
+
+
 .slider-container {
     display: flex;
     flex-direction: column;

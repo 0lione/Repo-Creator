@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function Contributors() {
+function Contributors({setShowSuccess}) {
 
     const [contributors, setContributors] = useState([]);
 
@@ -21,7 +21,7 @@ function Contributors() {
         const formValues = {
             contributors_name: contributors.join(","),
         };
-        fetch('http://localhost:5000/api/contributors', {
+        fetch('https://api-ijet.onrender.com/api/contributors', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ function Contributors() {
             .then((response) => response.json())
             .then((result) => {
                 if (result['status'] === 'success') {
-
+                    setShowSuccess(true);
                 }
             })
             .catch((error) => {
@@ -72,7 +72,7 @@ function Contributors() {
                     <br />
                     <input className={"button add"} type="button" value="Add Contributor" onClick={onClickEvent} />
                     <br />
-                    <input className={"button"} type="submit" value="Submit" />
+                    <input className={"button"} type="submit" value="Submit" onClick={handleRest}/>
                     </div>
             </form>
         </div>

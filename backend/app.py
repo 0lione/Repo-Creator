@@ -5,15 +5,13 @@ from flask_cors import CORS
 
 app = Flask(__name__, static_folder='frontend/build', static_url_path='/')
 CORS(app)
+user = [None]
 repo = [None]
 
 
 @app.route('/api/create-repo', methods=['POST'])
 def create_repo():
     if request.method == 'POST':
-        # Script code from GitHub import to the end
-        from github import Github, GithubException
-        from github import Auth
 
         def check_bool(checker):
             if checker in ("Y", ""):
@@ -23,9 +21,6 @@ def create_repo():
             else:
                 raise Exception("Invalid input")
 
-        auth = Auth.Token("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")
-
-        g = Github(auth=auth)
 
         try:
             form_values = request.json
@@ -34,12 +29,11 @@ def create_repo():
             repo_private = form_values['repo_private']
             if repo_private == "":
                 repo_private = False 
-            # CREATE REPO HERE
-            repo[0] = g.get_user().create_repo(repo_name, description=repo_description, private=repo_private)
+            repo[0] = user[0].create_repo(repo_name, description=repo_description, private=repo_private)
             return jsonify({'status': 'success'})
         except GithubException as e:
             if e.status == 422:
-                return jsonify({'status': 'error'})
+                return jsonify({'status': 'fail'})
 
 
 @app.route('/api/create-files', methods=['POST'])
@@ -56,7 +50,7 @@ def create_files():
             repo[0].create_file(f"main.{(lambda x: x if extensions.get(x) is None else extensions.get(x))(language)}",
                              "Repo Creation", "", branch="main")
         except Exception as e:
-            raise Exception(e)
+                return jsonify({'status': 'fail'})
         return jsonify({'status': 'success'})
 
 
@@ -69,12 +63,27 @@ def contributors():
         app.logger.warning(contributors)
         try:
             for contributor in contributors:
-                repo[0].add_to_collaborators(contributor, "push")
+                if len(contributor) > 0:
+                    repo[0].add_to_collaborators(contributor, "push")
         except Exception as e:
-            raise Exception(e)
+            return jsonify({'status': 'fail'})
         return jsonify({'status': 'success'})
 
     return render_template('index.html')
+
+
+@app.route('/api/token', methods=['POST'])
+def get_token():
+    if request.method == 'POST':
+        form_values = request.json
+        token = form_values['token']
+        try:
+            auth = Auth.Token(token)
+            g = Github(auth=auth)
+            user[0] = g.get_user()
+        except Exception as e:
+            return jsonify({'status': 'fail'})
+        return jsonify({'status': 'success'})
 
 
 if __name__ == '__main__':

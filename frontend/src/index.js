@@ -1,4 +1,3 @@
-import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import logo from './GitHub-Mark.png';
 import './index.css';
@@ -6,13 +5,17 @@ import 'bootstrap/dist/css/bootstrap.css';
 import CreateRepo from "./CreateRepo";
 import AddFiles from "./AddFiles";
 import Contributors from "./AddContributors";
+import Token from "./Token";
+import Success from "./success";
 import { useState } from 'react';
 
 function Header() {
    return (
        <div className={"Header"}>
            <nav className="Nav">
-                   <img src={logo} className="Nav-logo" alt="logo" width={90} />
+                <a href="https://github.com/0lione" target={"_blank"}>
+                   <img src={logo} className="Nav-logo" alt="logo" width={90}/>
+                </a>
                     <h1 className="Header-title">Create your GitHub Repository</h1>
            </nav>
       </div>
@@ -23,8 +26,10 @@ function Header() {
 
 
 function App() {
+    const [showCreateRepo, setShowCreateRepo] = useState(false);
     const [showAddFiles, setShowAddFiles] = useState(false);
     const [showAddContributors, setShowAddContributors] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
 
 
 
@@ -39,7 +44,7 @@ function App() {
 
     const handleSubmit = (e,uri,formValues,setShowOtherComponent) => {
         e.preventDefault();
-        fetch(`http://localhost:5000/api/${uri}`, {
+        fetch(`https://api-ijet.onrender.com/api/${uri}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -58,10 +63,14 @@ function App() {
     };
     return (
         <div className="App">
-            <Header/>
-            {!showAddFiles && <CreateRepo setShowAddFiles={setShowAddFiles} change={handleChange} request={handleSubmit}/>}
-            {(!showAddContributors && showAddFiles) && <AddFiles setShowAddContributors={setShowAddContributors} change={handleChange} request={handleSubmit}/>}
-            {showAddContributors && <Contributors/>}
+            {!showSuccess && <Header/>}
+            {!showSuccess && !showCreateRepo && <Token setShowCreateRepo={setShowCreateRepo} change={handleChange} request={handleSubmit}/>}
+            {!showSuccess && (showCreateRepo && !showAddFiles) && <CreateRepo setShowAddFiles={setShowAddFiles} change={handleChange} request={handleSubmit}/>}
+            {!showSuccess && (!showAddContributors && showAddFiles) && <AddFiles setShowAddContributors={setShowAddContributors} change={handleChange} request={handleSubmit}/>}
+            {!showSuccess && showAddContributors && <Contributors setShowSuccess={setShowSuccess}/>}
+            {showSuccess && <Success setShowCreateRepo={setShowCreateRepo} setShowAddFiles={setShowAddFiles}
+                                     setShowAddContributors={setShowAddContributors} setShowSuccess={setShowSuccess}/>}
+
         </div>
     );
 }
