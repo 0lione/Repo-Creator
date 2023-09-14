@@ -20,9 +20,26 @@ To run the GitHub WebApp locally, you'll need to set up both the frontend and ba
 
 ## Usage
 
-    Access the web application by opening your browser and navigating to http://localhost:3000 (assuming the React development server is running).
+Access the web application by opening your browser and navigating to http://localhost:3000 (assuming the React development server is running).
 
-    Use the GitHub WebApp to create repositories, add files, and invite collaborators.
+Use the GitHub WebApp to create repositories, add files, and invite collaborators.
+
+
+## Website Screenshots
+
+Here are some screenshots of our GitHub WebApp:
+
+<!-- Slide 1 -->
+![Screenshot 1](frontend/src/create.png)
+
+<!-- Slide 2 -->
+![Screenshot 2](frontend/src/files.png)
+
+<!-- Slide 3 -->
+![Screenshot 3](frontend/src/contri.png)
+
+<!-- Slide 4 -->
+![Screenshot 4](frontend/src/success.png)
 
 
 ## Acknowledgments
