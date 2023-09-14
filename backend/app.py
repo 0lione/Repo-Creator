@@ -3,7 +3,7 @@ from github import Github, GithubException
 from github import Auth
 from flask_cors import CORS
 
-app = Flask(__name__, static_folder='frontend/build', static_url_path='/')
+app = Flask(__name__, static_folder='frontend/src', static_url_path='/')
 CORS(app)
 user = [None]
 repo = [None]

@@ -44,7 +44,7 @@ function App() {
 
     const handleSubmit = (e,uri,formValues,setShowOtherComponent) => {
         e.preventDefault();
-        fetch(`https://api-ijet.onrender.com/api/${uri}`, {
+        fetch(`http://localhost:5000/api/${uri}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

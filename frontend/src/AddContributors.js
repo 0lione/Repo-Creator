@@ -21,7 +21,7 @@ function Contributors({setShowSuccess}) {
         const formValues = {
             contributors_name: contributors.join(","),
         };
-        fetch('https://api-ijet.onrender.com/api/contributors', {
+        fetch('http://localhost:5000/api/contributors', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
