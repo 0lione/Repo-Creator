@@ -1,0 +1,120 @@
+html, body {
+    background-color: #282D35;
+}
+
+.App {
+    text-align: center;
+    background-color: #282D35;
+    color: #61DAFB;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+.App input[type=text] {
+    background-color: #21222A;
+    color: #61DAFB;
+    border: none;
+    padding: 7px;
+    margin-bottom: 10px;
+}
+.form-select.form-select-custom {
+    background-color: #21222A !important;
+    color: #61DAFB !important;
+    border: none !important;
+    margin-bottom: 10px !important;
+}
+
+.AddFiles {
+    text-align: center;
+    background-color: #282D35;
+    color: #61DAFB;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.Header-title {
+    flex-grow: 1;
+    align-self: center;
+    text-align: center;
+}
+
+.Nav {
+    display: flex;
+    background-color: #21222A;
+    align-items: center;
+    height: 150px;
+    padding: 45px;
+    color: #61DAFB;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 1px 2px #282D35;
+}
+
+
+.forms-repo {
+    padding: 0 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80vh;
+}
+
+.forms {
+    padding: 0 200px;
+    height: 80vh;
+}
+
+.button {
+    background-color: #61DAFB;
+    color: #282D35;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 1px 2px #21222A;
+}
+
+.add {
+    margin-bottom: 30px;
+}
+
+.labels {
+    font-size: 25px;
+    padding: 40px 0;
+    margin: 10px;
+}
+
+.block1 {
+    width: 500px;
+}
+
+.block2 {
+    padding-top: 123px;
+    width: 500px;
+}
+
+.Content-Wrapper {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.files-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 90px;
+    padding-bottom: 200px;
+}
+
+.contributors-wrapper {
+    padding-top: 90px;
+    padding-bottom: 200px;
+}
+
+
+#remove-button {
+    margin-left: 30px;
+}
+
