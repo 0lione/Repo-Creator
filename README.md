@@ -1,6 +1,6 @@
 # GitHub WebApp
 
-![GitHub WebApp](frontend/src/logo.png)
+![GitHub WebApp](frontend/src/GitHub-Mark.png)
 
 ## Overview
 
