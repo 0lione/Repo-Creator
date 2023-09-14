@@ -38,6 +38,9 @@ Here are some screenshots of our GitHub WebApp:
 <!-- Slide 4 -->
 ![Screenshot 4](frontend/src/success.png)
 
+## Browser Compatibility
+This website is currently optimized for use with the Mozilla Firefox web browser. While it may work in other browsers, I recommend using Firefox for the best experience.
+
 
 ## Acknowledgments
 
