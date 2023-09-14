@@ -14,9 +14,6 @@ GitHub WebApp is a web application that allows users to create GitHub repositori
 
 - **Collaborate with Contributors**: Users can invite collaborators to their repositories, allowing them to contribute code.
 
-## Installation
-
-To run the GitHub WebApp locally, you'll need to set up both the frontend and backend components. Follow the steps below:
 
 ## Usage
 
